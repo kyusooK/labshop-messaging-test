@@ -10,8 +10,9 @@ import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.MimeTypeUtils;
-import labshopmessagingtest.DecreaseStockApplication;
-import labshopmessagingtest.infra.DecreaseStockController;
+import labshopmessagingtest.OrderApplication;
+import labshopmessagingtest.domain.*;
+import labshopmessagingtest.infra.OrderController;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,12 +36,15 @@ public abstract class MessagingBase {
     }
 
     public void OrderPlaced() {
+        
+        String serializedJson = null;
+
         Order order = new Order();
 
         order.setId(1L);
-        order.setCustomerId('1');
-        order.setProductId('1');
-        order.setProductName('TV');
+        order.setCustomerId("1");
+        order.setProductId("1");
+        order.setProductName("TV");
         order.setQty(5);
 
         OrderPlaced orderPlaced = new OrderPlaced(order);
