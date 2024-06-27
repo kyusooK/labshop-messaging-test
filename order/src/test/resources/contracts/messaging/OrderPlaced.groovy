@@ -13,7 +13,7 @@ Contract.make {
         // Consumer Expected Payload spec. that a JSON message must have, 
         // If the Producer-side test is OK, then send the following msg to event-out channel.
         body(
-            eventType: "'OrderPlaced'",
+                eventType: "OrderPlaced",
                 id: 1,
                 customerId: "1",
                 productId: "1",
@@ -22,9 +22,9 @@ Contract.make {
         )
         bodyMatchers {
             jsonPath('$.id', byRegex(nonEmpty()).asLong())
-            jsonPath('$.customerid', byRegex(nonEmpty()).asString())
-            jsonPath('$.productid', byRegex(nonEmpty()).asString())
-            jsonPath('$.productname', byRegex(nonEmpty()).asString())
+            jsonPath('$.customerId', byRegex(nonEmpty()).asString())
+            jsonPath('$.productId', byRegex(nonEmpty()).asString())
+            jsonPath('$.productName', byRegex(nonEmpty()).asString())
             jsonPath('$.qty', byRegex(nonEmpty()).asInteger())
         }
         headers {

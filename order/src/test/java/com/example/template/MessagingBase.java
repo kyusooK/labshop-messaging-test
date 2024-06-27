@@ -35,8 +35,8 @@ public abstract class MessagingBase {
         this.messaging.receive("eventTopic", 100, TimeUnit.MILLISECONDS);
     }
 
-    public void OrderPlaced() {
-        
+    public void orderPlaced() {
+
         String serializedJson = null;
 
         Order order = new Order();
