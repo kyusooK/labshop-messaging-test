@@ -1,11 +1,13 @@
 package labshopmessagingtest.domain;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PostPersist;
+import javax.persistence.Table;
+
 import labshopmessagingtest.InventoryApplication;
-import labshopmessagingtest.domain.StockDecreased;
 import lombok.Data;
 
 @Entity
@@ -35,28 +37,16 @@ public class Inventory {
 
     //<<< Clean Arch / Port Method
     public static void decreaseStock(OrderPlaced orderPlaced) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Inventory inventory = new Inventory();
-        repository().save(inventory);
-
-        StockDecreased stockDecreased = new StockDecreased(inventory);
-        stockDecreased.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderPlaced.get???()).ifPresent(inventory->{
+        repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
             
-            inventory // do something
+            inventory.setStock(inventory.getStock() - orderPlaced.getQty()); // do something
             repository().save(inventory);
 
             StockDecreased stockDecreased = new StockDecreased(inventory);
             stockDecreased.publishAfterCommit();
 
          });
-        */
 
     }
     //>>> Clean Arch / Port Method
