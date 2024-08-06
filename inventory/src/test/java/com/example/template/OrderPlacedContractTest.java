@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(classes = InventoryApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @AutoConfigureStubRunner(stubsMode = StubRunnerProperties.StubsMode.LOCAL, 
                         ids = "labshopmessagingtest:order:+:stubs")
-public class OrderPlacedContactTest {
+public class OrderPlacedContractTest {
 
     @Autowired
     StubFinder stubFinder;
