@@ -72,11 +72,6 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Support testing your microservice without connecting to a messaging system. -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream-test-support</artifactId>
-			<scope>test</scope>
-		</dependency>
 
 		<!-- Auto generating test Client based on CDC. -->
 		<dependency>
@@ -86,11 +81,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- tag::stubrunner[] -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
-			<scope>test</scope>
-		</dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>
